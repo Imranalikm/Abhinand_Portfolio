@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Prociono&family=Jacques+Francois&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Italiana&family=DM+Sans:ital,opsz,wght@0,9..40,100..900;1,9..40,100..900&display=swap");
+
+/* Map Figma font names to loaded Google Fonts via CSS attribute selectors */
+[class*="Playfair:"],
+[class*="Playfair:"] {
+  font-family: "Playfair", serif !important;
+}
+
+[class*="Playfair_Display_SC:"],
+[class*="Playfair_Display_SC:"] {
+  font-family: "Playfair Display SC", serif !important;
+}
+
+[class*="Inter:"],
+[class*="Inter:"] {
+  font-family: "Inter", sans-serif !important;
+}
+
+[class*="Montreal_Serial:"],
+[class*="Montreal_Serial:"] {
+  font-family: "DM Sans", sans-serif !important;
+}
+
+[class*="Poppins:"],
+[class*="Poppins:"] {
+  font-family: "Poppins", sans-serif !important;
+}
+
+[class*="Prociono:"],
+[class*="Prociono:"] {
+  font-family: "Prociono", serif !important;
+}
+
+[class*="Jacques_Francois:"],
+[class*="Jacques_Francois:"] {
+  font-family: "Jacques Francois", serif !important;
+}
+
+[class*="Philosopher:"],
+[class*="Philosopher:"] {
+  font-family: "Philosopher", serif !important;
+}
+
+[class*="MuseoModerno:"],
+[class*="MuseoModerno:"] {
+  font-family: "MuseoModerno", sans-serif !important;
+}
+
+[class*="Italiana:"],
+[class*="Italiana:"] {
+  font-family: "Italiana", serif !important;
+}

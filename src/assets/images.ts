@@ -1,0 +1,10 @@
+export { default as aboutPortrait1 } from "./images/about-portrait-1.png";
+export { default as aboutPortrait2 } from "./images/about-portrait-2.png";
+export { default as logoCoxFly } from "./images/logo-cox-fly.png";
+export { default as logoWapo } from "./images/logo-wapo.png";
+export { default as logoForexiveMark } from "./images/logo-forexive-mark.png";
+export { default as logoPratigya } from "./images/logo-pratigya.png";
+export { default as logoReworkHealth } from "./images/logo-rework-health.png";
+export { default as resumeBannerBg } from "./images/resume-banner-bg.png";
+export { default as deviceMacBookAir } from "./images/device-macbook-air.png";
+export { default as deviceIPhone15 } from "./images/device-iphone-15.png";
