@@ -96,8 +96,8 @@ export function PortfolioRowSailsApplication() {
   return (
     <PlainPortfolioRow
       index="01"
-      title="Sails application"
-      tags="Mobile app , user experience , User interface"
+      title="Dream Town"
+      tags="Website design , user experience , User interface"
       top={5075}
       tagsTop={5091}
       arrowTop={5084}
@@ -252,6 +252,7 @@ export function PortfolioShowcase() {
   return (
     <>
       <motion.p
+        id="portfolio"
         initial={{ opacity: 0, y: 36 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.25 }}

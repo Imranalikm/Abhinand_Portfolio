@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
-import { aboutPortrait1 as imgAbhinandhPotfolio, aboutPortrait2 as imgAbhinandhPotfolio1 } from "@/assets/images";
 import { inViewOnce } from "@/lib/motion";
+
+const imgAbhinandhPotfolio = "/abhinandh-portrait.png";
+const imgAbhinandhPotfolio1 = "/abhinandh-portrait.png";
 
 /** "About" label, headline, portrait photo and bio paragraphs. */
 export function AboutContent() {
   return (
     <div className="absolute contents left-[50px] top-[1051px]">
       <motion.p
+        id="about"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={inViewOnce}

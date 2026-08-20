@@ -38,7 +38,7 @@ export function Gallery({ images }: GalleryProps) {
               src={g.src}
               alt={g.label}
               draggable={false}
-              className="pointer-events-none block h-full w-full object-cover"
+              className="pointer-events-none block h-full w-full object-cover object-top"
             />
           </div>
         ))}

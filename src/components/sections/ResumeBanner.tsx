@@ -16,7 +16,8 @@ export function ResumeBanner() {
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle1} />
       </motion.div>
       <motion.a
-        href="#"
+        href="/abhinandh-resume.pdf"
+        download="Abhinandh-Resume.pdf"
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={inViewOnce}
