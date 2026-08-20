@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { Link } from "react-router-dom";
 import { deviceMacBookAir as imgMacBookAir2022, deviceIPhone15 as imgIPhone15 } from "@/assets/images";
 import { ArrowUpRightIcon } from "@/components/icons/ArrowUpRightIcon";
 
@@ -15,6 +16,8 @@ interface PlainPortfolioRowProps {
   tagsTop: number;
   arrowTop: number;
   dividerTop: number;
+  /** Route to a project detail page (e.g. "/project/dream-town"). Rows without one render as plain, non-clickable text. */
+  to?: string;
 }
 
 /**
@@ -22,13 +25,13 @@ interface PlainPortfolioRowProps {
  * text, nudges the title, draws an underline and washes the row with a faint
  * highlight bar — a small, consistent hover language distinct from row 02's photo reveal.
  */
-function PlainPortfolioRow({ index, title, tags, top, tagsTop, arrowTop, dividerTop }: PlainPortfolioRowProps) {
+function PlainPortfolioRow({ index, title, tags, top, tagsTop, arrowTop, dividerTop, to }: PlainPortfolioRowProps) {
   const [hovered, setHovered] = useState(false);
   const barRef = useRef<HTMLDivElement>(null);
   const inView = useInView(barRef, { once: true, amount: 0.4 });
 
-  return (
-    <div className="absolute contents" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+  const rowContent = (
+    <>
       <motion.div
         ref={barRef}
         className="absolute left-[50px] w-[1340px] rounded-[6px] pointer-events-none"
@@ -72,6 +75,18 @@ function PlainPortfolioRow({ index, title, tags, top, tagsTop, arrowTop, divider
         transition={{ duration: 0.45, ease: EASE }}
       />
       <ArrowUpRightIcon top={arrowTop} dimmed active={hovered} />
+    </>
+  );
+
+  const hoverHandlers = { onMouseEnter: () => setHovered(true), onMouseLeave: () => setHovered(false) };
+
+  return to ? (
+    <Link className="absolute contents cursor-pointer" to={to} {...hoverHandlers}>
+      {rowContent}
+    </Link>
+  ) : (
+    <div className="absolute contents" {...hoverHandlers}>
+      {rowContent}
     </div>
   );
 }
@@ -79,7 +94,16 @@ function PlainPortfolioRow({ index, title, tags, top, tagsTop, arrowTop, divider
 /* ------------------------------ Portfolio rows -------------------------------- */
 export function PortfolioRowSailsApplication() {
   return (
-    <PlainPortfolioRow index="01" title="Sails application" tags="Mobile app , user experience , User interface" top={5075} tagsTop={5091} arrowTop={5084} dividerTop={5160} />
+    <PlainPortfolioRow
+      index="01"
+      title="Sails application"
+      tags="Mobile app , user experience , User interface"
+      top={5075}
+      tagsTop={5091}
+      arrowTop={5084}
+      dividerTop={5160}
+      to="/project/dream-town"
+    />
   );
 }
 
