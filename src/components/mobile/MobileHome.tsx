@@ -103,7 +103,9 @@ function Hero() {
           </p>
           <div className="flex gap-4">
             <SocialIconOutline />
-            <SocialIconSolid />
+            <a href={SITE_INFO.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="block">
+              <SocialIconSolid />
+            </a>
           </div>
         </div>
       </div>
@@ -311,7 +313,9 @@ function Footer() {
       <div className="mt-10 flex flex-wrap items-center justify-between gap-6 border-t border-[rgba(213,205,196,0.2)] pt-6">
         <div className="flex gap-6">
           <SocialIconOutline />
-          <SocialIconSolid />
+          <a href={SITE_INFO.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="block">
+            <SocialIconSolid />
+          </a>
         </div>
         <p className="text-[15px]">{SITE_INFO.copyright}</p>
         <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="min-h-11 text-[18px] underline underline-offset-4">

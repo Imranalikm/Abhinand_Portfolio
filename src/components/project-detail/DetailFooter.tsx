@@ -52,7 +52,7 @@ export function DetailFooter() {
           <a href="#" aria-label="Behance" className="block opacity-100 transition-[transform,opacity] duration-300 ease-out hover:-translate-y-1 hover:opacity-60 max-md:p-0.5">
             <IconBehance />
           </a>
-          <a href="#" aria-label="LinkedIn" className="block opacity-100 transition-[transform,opacity] duration-300 ease-out hover:-translate-y-1 hover:opacity-60 max-md:p-0.5">
+          <a href={SITE_INFO.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="block opacity-100 transition-[transform,opacity] duration-300 ease-out hover:-translate-y-1 hover:opacity-60 max-md:p-0.5">
             <IconLinkedIn />
           </a>
           <p className="text-[clamp(15px,4vw,24px)] font-medium capitalize md:ml-[140px]">{SITE_INFO.copyright}</p>

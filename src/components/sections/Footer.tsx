@@ -1,6 +1,7 @@
 import { m } from "framer-motion";
 import { SocialIconOutline, SocialIconSolid } from "@/components/icons/SocialIcons";
 import { inViewOnce } from "@/lib/motion";
+import { SITE_INFO } from "@/data/site";
 import footer01Svg from "@/assets/svg/footer-01.svg";
 
 export function FooterServicesColumn() {
@@ -43,9 +44,9 @@ export function FooterSocialIcons() {
       <m.div whileHover={{ scale: 1.15, rotate: -8 }} whileTap={{ scale: 0.95 }}>
         <SocialIconOutline />
       </m.div>
-      <m.div whileHover={{ scale: 1.15, rotate: 8 }} whileTap={{ scale: 0.95 }}>
+      <m.a href={SITE_INFO.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" whileHover={{ scale: 1.15, rotate: 8 }} whileTap={{ scale: 0.95 }} className="block">
         <SocialIconSolid />
-      </m.div>
+      </m.a>
     </div>
   );
 }

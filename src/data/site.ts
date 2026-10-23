@@ -4,5 +4,6 @@ export const SITE_INFO = {
   email: "abhinandhkottappurath@gmail.com",
   phone: "+91 9995561738",
   location: "Kerala-India",
+  linkedin: "https://www.linkedin.com/in/abhinandh-kottappurath-266b8714a/",
   copyright: "© 2025 Abhinandh KP. All Rights Reserved.",
 };
