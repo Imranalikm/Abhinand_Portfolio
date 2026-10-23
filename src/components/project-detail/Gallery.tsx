@@ -24,10 +24,11 @@ export function Gallery({ images }: GalleryProps) {
   }
 
   return (
-    <div className="relative min-h-[420px] overflow-hidden bg-[#222]">
-      <div ref={rail} className="flex cursor-grab select-none items-end justify-center-safe gap-[26px] overflow-x-auto overflow-y-visible px-16 pt-20 active:cursor-grabbing [scrollbar-width:none]" onMouseDown={onDown} onMouseUp={onUp} onMouseLeave={onUp} onMouseMove={onMove}>
+    <div className="relative min-h-[300px] overflow-hidden bg-[#222] md:min-h-[420px]">
+      <div ref={rail} className="flex cursor-grab select-none items-end justify-center-safe gap-4 overflow-x-auto overflow-y-visible overscroll-x-contain px-4 pt-10 active:cursor-grabbing [scrollbar-width:none] max-md:snap-x max-md:snap-mandatory max-md:scroll-px-4 md:gap-[26px] md:px-16 md:pt-20" onMouseDown={onDown} onMouseUp={onUp} onMouseLeave={onUp} onMouseMove={onMove}>
         {images.map((g, i) => (
-          <div key={i} className="shrink-0 overflow-hidden" style={{ width: g.w, height: g.h }}>
+          // Height-driven with the design aspect ratio; phones cap the height so tall screenshots fit the viewport.
+          <div key={i} className="h-[var(--h)] shrink-0 snap-start overflow-hidden max-md:h-[min(var(--h),55vh)]" style={{ "--h": `${g.h}px`, aspectRatio: `${g.w} / ${g.h}` } as React.CSSProperties}>
             <ResponsiveImage picture={g.src} alt={g.label} sizes={`${g.w}px`} draggable={false} className="pointer-events-none block h-full w-full object-cover object-top" />
           </div>
         ))}

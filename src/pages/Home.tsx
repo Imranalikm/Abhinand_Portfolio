@@ -1,47 +1,16 @@
-import { useEffect, useRef, useState } from "react";
-import { m, useScroll, useSpring } from "framer-motion";
-import { Portfolio } from "@/components/Portfolio";
+import { lazy, Suspense } from "react";
+import { useMediaQuery } from "@/lib/useMediaQuery";
 
-const DESIGN_WIDTH = 1440;
-const DESIGN_HEIGHT = 6990;
+const DesktopHome = lazy(() => import("@/components/DesktopHome").then((mod) => ({ default: mod.DesktopHome })));
+const MobileHome = lazy(() => import("@/components/mobile/MobileHome").then((mod) => ({ default: mod.MobileHome })));
 
 /**
- * The page is authored at a fixed 1440x6990 canvas (the lowest content — the
- * footer row — bottoms out around y=6928; 6990 leaves a small breathing margin).
- * This wrapper measures its own width, computes a uniform scale factor, and
- * renders the fixed-size design tree inside an absolutely positioned inner
- * layer with a CSS transform. The inner layer MUST stay `position: absolute`
- * (not static) - otherwise the unscaled canvas is still reserved in normal
- * flow even though it paints smaller, producing a double scrollbar.
+ * >=1280px renders the pixel-exact scaled Figma canvas (text stays >=14px down to 1280); below that, a stacked
+ * flow layout built for touch and narrow screens. Each is its own chunk, so phones never download the canvas.
  */
+export const DESKTOP_QUERY = "(min-width: 1280px)";
+
 export function Home() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [scale, setScale] = useState(1);
-  const { scrollYProgress } = useScroll();
-  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 25, mass: 0.2 });
-
-  useEffect(() => {
-    const updateScale = () => {
-      const width = containerRef.current?.offsetWidth ?? DESIGN_WIDTH;
-      setScale(width / DESIGN_WIDTH);
-    };
-
-    updateScale();
-    window.addEventListener("resize", updateScale);
-    return () => window.removeEventListener("resize", updateScale);
-  }, []);
-
-  return (
-    <>
-      <m.div
-        className="fixed top-0 left-0 right-0 h-[3px] bg-[#d5cdc4] origin-left z-50"
-        style={{ scaleX: progress }}
-      />
-      <div ref={containerRef} className="bg-black relative w-full overflow-hidden" style={{ height: DESIGN_HEIGHT * scale }}>
-        <div className="absolute top-0 left-0 origin-top-left" style={{ width: DESIGN_WIDTH, height: DESIGN_HEIGHT, transform: `scale(${scale})` }}>
-          <Portfolio />
-        </div>
-      </div>
-    </>
-  );
+  const isDesktop = useMediaQuery(DESKTOP_QUERY);
+  return <Suspense fallback={<div className="min-h-screen bg-black" />}>{isDesktop ? <DesktopHome /> : <MobileHome />}</Suspense>;
 }
