@@ -41,27 +41,16 @@ export function DetailFooter() {
           </div>
         </div>
 
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="cursor-pointer border-none bg-none text-[24px] font-medium capitalize text-[#222] underline"
-        >
+        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="cursor-pointer border-none bg-none text-[24px] font-medium capitalize text-[#222] underline">
           Back to top
         </button>
       </div>
 
       <div className="mt-[60px] flex items-center gap-12">
-        <a
-          href="#"
-          aria-label="Behance"
-          className="block opacity-100 transition-opacity duration-200 hover:opacity-50"
-        >
+        <a href="#" aria-label="Behance" className="block opacity-100 transition-opacity duration-200 hover:opacity-50">
           <IconBehance />
         </a>
-        <a
-          href="#"
-          aria-label="LinkedIn"
-          className="block opacity-100 transition-opacity duration-200 hover:opacity-50"
-        >
+        <a href="#" aria-label="LinkedIn" className="block opacity-100 transition-opacity duration-200 hover:opacity-50">
           <IconLinkedIn />
         </a>
         <p className="ml-[140px] text-[24px] font-medium capitalize">{SITE_INFO.copyright}</p>

@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
 import { m, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
-import { deviceMacBookAir as imgMacBookAir2022, deviceIPhone15 as imgIPhone15 } from "@/assets/images";
+import { deviceMacBookAir, deviceIPhone15 } from "@/assets/images";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { ArrowUpRightIcon } from "@/components/icons/ArrowUpRightIcon";
 import { prefetchProjectDetail } from "@/lib/prefetch";
 
@@ -104,10 +105,10 @@ export function PortfolioRowTradingPlatform() {
       <ArrowUpRightIcon top={5459} active={hovered} />
 
       <m.div className="absolute h-[100px] left-[1195px] rounded-[10px] top-[5420px] w-[133px] pointer-events-none" data-name="MacBook Air (2022)" initial={false} animate={{ opacity: hovered ? 1 : 0, scale: hovered ? 1 : 0.85, y: hovered ? [0, -6, 0] : 12 }} transition={{ opacity: { duration: 0.35, ease: EASE }, scale: { duration: 0.35, ease: EASE }, y: { duration: hovered ? 5 : 0.35, repeat: hovered ? Infinity : 0, ease: "easeInOut" } }}>
-        <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[10px] size-full" src={imgMacBookAir2022} />
+        <ResponsiveImage picture={deviceMacBookAir} alt="" sizes="10vw" className="absolute inset-0 max-w-none object-cover pointer-events-none rounded-[10px] size-full" />
       </m.div>
       <m.div className="absolute h-[107px] left-[659px] top-[5420px] w-[85px] overflow-hidden pointer-events-none" data-name="iPhone 15" initial={false} animate={{ opacity: hovered ? 1 : 0, scale: hovered ? 1 : 0.85, y: hovered ? [0, -8, 0] : 12 }} transition={{ opacity: { duration: 0.35, delay: hovered ? 0.05 : 0, ease: EASE }, scale: { duration: 0.35, delay: hovered ? 0.05 : 0, ease: EASE }, y: { duration: hovered ? 5 : 0.35, delay: hovered ? 0.6 : 0, repeat: hovered ? Infinity : 0, ease: "easeInOut" } }}>
-        <img alt="" className="absolute h-[123.11%] left-[-49.46%] max-w-none top-[-12.07%] w-[204.74%]" src={imgIPhone15} />
+        <ResponsiveImage picture={deviceIPhone15} alt="" sizes="13vw" className="absolute h-[123.11%] left-[-49.46%] max-w-none top-[-12.07%] w-[204.74%]" />
       </m.div>
     </div>
   );

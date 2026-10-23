@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { m } from "framer-motion";
-import { logoCoxFly as imgFile6805C68504B4BLogoCoxFly1, logoWapo as imgWapo13, logoForexiveMark as img47159693817496696455757011363054315679541367NRemovebgPreview, logoPratigya as imgWhatsAppImage20250116At114258Am, logoReworkHealth as imgImportedPhoto17314035089991 } from "@/assets/images";
+import { logoCoxFly, logoWapo, logoForexiveMark, logoPratigya, logoReworkHealth } from "@/assets/images";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { inViewOnce } from "@/lib/motion";
 import clientLogos01Svg from "@/assets/svg/clientLogos-01.svg";
 import clientLogos02Svg from "@/assets/svg/clientLogos-02.svg";
@@ -98,7 +99,7 @@ export function CoxFlyLogo() {
         <p className="[word-break:break-word] col-1 font-['Poppins:Medium',sans-serif] leading-[normal] ml-0 mt-0 not-italic relative row-1 text-[#d5cdc4] text-[12px] whitespace-nowrap">{`TOURS & TRAVELS`}</p>
       </div>
       <div className="col-1 h-[49px] ml-0 mt-0 relative row-1 w-[169.213px]" data-name="_file6805c68504b4b-LOGO-COX-FLY 1">
-        <img alt="" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" src={imgFile6805C68504B4BLogoCoxFly1} />
+        <ResponsiveImage picture={logoCoxFly} alt="Cox-Fly Tours & Travels" sizes="11.7vw" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" />
       </div>
     </div>
   );
@@ -157,7 +158,7 @@ export function PratigyaPropertiesLogo() {
   return (
     <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0">
       <div className="col-1 h-[62px] ml-0 mt-0 relative rounded-[10px] row-1 w-[71px]" data-name="WhatsApp Image 2025-01-16 at 11.42.58 AM">
-        <img alt="" className="absolute inset-0 max-w-none object-bottom pointer-events-none rounded-[10px] size-full" src={imgWhatsAppImage20250116At114258Am} />
+        <ResponsiveImage picture={logoPratigya} alt="Pratigya Properties" sizes="4.9vw" className="absolute inset-0 max-w-none object-bottom pointer-events-none rounded-[10px] size-full" />
       </div>
       <div className="[word-break:break-word] col-1 grid-cols-[max-content] grid-rows-[max-content] inline-grid ml-[12px] mt-[21px] not-italic place-items-start relative row-1 text-[#d5cdc4]">
         <p className="col-1 font-['Italiana:Regular',sans-serif] leading-[normal] ml-[72px] mt-0 relative row-1 text-[20px] w-[84px]">PRATIGYA</p>
@@ -173,7 +174,7 @@ export function ReworkHealthLogo() {
   return (
     <div className="content-stretch flex gap-[10px] items-center relative shrink-0">
       <div className="h-[47px] relative rounded-[4px] shrink-0 w-[76px]" data-name="ImportedPhoto_1731403508999 1">
-        <img alt="" className="absolute inset-0 max-w-none object-bottom pointer-events-none rounded-[4px] size-full" src={imgImportedPhoto17314035089991} />
+        <ResponsiveImage picture={logoReworkHealth} alt="Rework Health" sizes="5.3vw" className="absolute inset-0 max-w-none object-bottom pointer-events-none rounded-[4px] size-full" />
       </div>
       <div className="grid-cols-[max-content] grid-rows-[max-content] inline-grid leading-[0] place-items-start relative shrink-0">
         <p className="[word-break:break-word] col-1 font-['Inter:Regular',sans-serif] font-normal leading-[normal] ml-0 mt-0 not-italic relative row-1 text-[#d5cdc4] text-[24px] whitespace-nowrap">Rework Health</p>
@@ -274,7 +275,7 @@ export function ClientLogosRowSecondary() {
     <MarqueeRow reverse duration={28}>
       <LogoItem>
         <div className="h-[53px] pointer-events-none relative shrink-0 w-[120px]" data-name="Wapo-13">
-          <img alt="" className="absolute inset-0 max-w-none object-bottom size-full" src={imgWapo13} />
+          <ResponsiveImage picture={logoWapo} alt="WAPO General Trading" sizes="8.3vw" className="absolute inset-0 max-w-none object-bottom size-full" />
           <div aria-hidden className="absolute border-[#d5cdc4] border-b border-solid inset-0" />
         </div>
       </LogoItem>
@@ -283,7 +284,7 @@ export function ClientLogosRowSecondary() {
       </LogoItem>
       <LogoItem>
         <div className="h-[81.837px] relative shrink-0 w-[102px]" data-name="471596938_1749669645575701_1363054315679541367_n-removebg-preview">
-          <img alt="" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" src={img47159693817496696455757011363054315679541367NRemovebgPreview} />
+          <ResponsiveImage picture={logoForexiveMark} alt="Forexive" sizes="7.1vw" className="absolute inset-0 max-w-none object-bottom pointer-events-none size-full" />
         </div>
       </LogoItem>
       <LogoItem>
