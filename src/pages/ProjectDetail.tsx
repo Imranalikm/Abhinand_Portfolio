@@ -32,7 +32,7 @@ export function ProjectDetail() {
       <DetailHeader nextSlug={next?.slug} />
 
       {/* Hero */}
-      <section className="px-4 pt-24 md:px-8 xl:px-[50px] xl:pt-[119px]">
+      <section className="px-4 pt-24 md:px-[50px] md:pt-[119px]">
         <p className="text-[21px] leading-none text-[#565e6a]">{project.date}</p>
 
         <h1 className="my-8 font-['Playfair',Georgia,serif] text-[clamp(44px,8.5vw,120px)] font-normal leading-none text-[#222] md:my-14" style={{ fontVariationSettings: '"opsz" 12, "wdth" 100' }}>
@@ -60,7 +60,7 @@ export function ProjectDetail() {
       </section>
 
       {/* Overview + problem statement */}
-      <section className="flex max-w-[1200px] flex-col gap-10 px-4 py-14 md:gap-[50px] md:px-8 md:py-20 xl:px-[50px]">
+      <section className="flex max-w-[1200px] flex-col gap-10 px-4 py-14 md:gap-[50px] md:px-[50px] md:py-20">
         <Row label="Overview">
           {project.overview.map((p, i) => (
             <p key={i} className={i < project.overview.length - 1 ? "mb-3" : undefined}>
@@ -81,7 +81,7 @@ export function ProjectDetail() {
       <Gallery images={project.gallery} />
 
       {/* Role + tags */}
-      <section className="flex max-w-[1440px] flex-col gap-10 px-4 py-14 md:gap-[50px] md:px-8 md:py-20 xl:pl-[205px] xl:pr-[50px]">
+      <section className="flex max-w-[1440px] flex-col gap-10 px-4 py-14 md:gap-[50px] md:py-20 md:pl-[205px] md:pr-[50px]">
         <Row label="My role" wide>
           {project.role.responsibilitiesTitle === null ? (
             <p className="mb-2">{project.role.intro}</p>
@@ -105,8 +105,8 @@ export function ProjectDetail() {
 
       <Ticker text="LET'S WORK TOGETHER." />
 
-      <section className="px-4 pt-14 md:px-8 md:pt-20 xl:px-[50px]">
-        <p className="max-w-[567px] font-['Playfair',Georgia,serif] text-[clamp(32px,4.5vw,60px)] font-normal leading-[1.15] text-[#222] xl:leading-[55px]" style={{ fontVariationSettings: '"opsz" 12, "wdth" 100' }}>
+      <section className="px-4 pt-14 md:px-[50px] md:pt-20">
+        <p className="max-w-[567px] font-['Playfair',Georgia,serif] text-[32px] font-normal leading-[1.15] text-[#222] md:text-[clamp(36px,4.5vw,60px)] md:leading-[55px]" style={{ fontVariationSettings: '"opsz" 12, "wdth" 100' }}>
           {project.closingQuote}
         </p>
       </section>

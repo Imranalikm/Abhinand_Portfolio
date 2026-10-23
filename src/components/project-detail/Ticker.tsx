@@ -12,7 +12,7 @@ export function Ticker({ text }: TickerProps) {
     <div className="overflow-hidden border-t border-b border-[#e0e0e0] py-4">
       <div className="flex w-max animate-[ticker_20s_linear_infinite] motion-reduce:animate-none">
         {repeated.map((t, i) => (
-          <span key={i} className="whitespace-nowrap pr-10 font-['Playfair',Georgia,serif] text-[clamp(36px,5vw,70px)] leading-[55px] text-[#222]" style={{ fontVariationSettings: '"opsz" 12, "wdth" 100' }}>
+          <span key={i} className="whitespace-nowrap pr-10 font-['Playfair',Georgia,serif] text-[36px] md:text-[clamp(48px,5vw,70px)] leading-[55px] text-[#222]" style={{ fontVariationSettings: '"opsz" 12, "wdth" 100' }}>
             {t}
           </span>
         ))}

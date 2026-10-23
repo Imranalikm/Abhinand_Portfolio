@@ -6,10 +6,11 @@ const DesktopHome = lazy(() => import("@/components/DesktopHome").then((mod) => 
 const MobileHome = lazy(() => import("@/components/mobile/MobileHome").then((mod) => ({ default: mod.MobileHome })));
 
 /**
- * >=1280px renders the pixel-exact scaled Figma canvas (text stays >=14px down to 1280); below that, a stacked
- * flow layout built for touch and narrow screens. Each is its own chunk, so phones never download the canvas.
+ * Any mouse/trackpad device (at every window size) and any screen >=1024px gets the original, pixel-exact
+ * scaled Figma canvas, exactly as before. Phones and touch tablets under 1024px get a stacked flow layout.
+ * Each is its own chunk, so phones never download the canvas.
  */
-export const DESKTOP_QUERY = "(min-width: 1280px)";
+export const DESKTOP_QUERY = "(hover: hover) and (pointer: fine), (min-width: 1024px)";
 
 export function Home() {
   const isDesktop = useMediaQuery(DESKTOP_QUERY);
