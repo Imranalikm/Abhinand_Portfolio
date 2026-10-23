@@ -69,7 +69,7 @@ function Hero() {
     // Fills the first screen (minus the header) like the desktop hero: headline on top, blurb + biography row anchored to the bottom.
     <section className={`${GUTTER} flex min-h-[calc(100svh-76px)] flex-col pt-6 pb-10`}>
       <div className="flex flex-1 flex-col justify-center">
-        <h1 className={`${HEADING} text-[clamp(42px,12.2vw,100px)] leading-[1.04]`}>
+        <h1 className={`${HEADING} text-center text-[clamp(42px,12.2vw,100px)] leading-[1.04]`}>
           <m.span {...lineAnim(0)} className="block">
             {line1}
           </m.span>
@@ -80,7 +80,7 @@ function Hero() {
             {line3}
           </m.span>
           {/* As on desktop, the mandala sits on the "India" line, to its left. */}
-          <m.span {...lineAnim(3)} className="flex items-center gap-[0.45em] pl-[16%]">
+          <m.span {...lineAnim(3)} className="flex items-center justify-center gap-[0.4em]">
             <span aria-hidden className="block w-[0.95em] shrink-0">
               <ResponsiveImage picture={heroFlourish} alt="" sizes="100px" className="block h-auto w-full animate-[rotate-full_120s_linear_infinite] motion-reduce:animate-none" />
             </span>

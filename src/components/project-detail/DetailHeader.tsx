@@ -25,15 +25,15 @@ export function DetailHeader({ nextSlug }: DetailHeaderProps) {
         backdropFilter: scrolled ? "blur(10px)" : "none",
       }}
     >
-      <Link to="/" className="flex items-center text-[16px] text-black no-underline max-md:min-h-11">
-        ⟵ Back
+      <Link to="/" className="group flex items-center gap-1 text-[16px] text-black no-underline max-md:min-h-11">
+        <span className="inline-block transition-transform duration-300 ease-out group-hover:-translate-x-1">⟵</span> Back
       </Link>
-      <Link to="/" aria-label="Home" className="flex max-md:size-11 items-center justify-center">
+      <Link to="/" aria-label="Home" className="flex items-center justify-center transition-transform duration-500 ease-out hover:rotate-[14deg] hover:scale-110 max-md:size-11">
         <LogoMark />
       </Link>
       {nextSlug ? (
-        <Link to={`/project/${nextSlug}`} className="flex items-center text-[16px] text-black no-underline max-md:min-h-11">
-          Next ⟶
+        <Link to={`/project/${nextSlug}`} className="group flex items-center gap-1 text-[16px] text-black no-underline max-md:min-h-11">
+          Next <span className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1">⟶</span>
         </Link>
       ) : (
         <span />
