@@ -6,7 +6,7 @@
 // Hero mandala line art: rasterised from a 515 KB, 246-path SVG; at its ~112-150px display size the raster is identical and far cheaper to decode.
 export { default as heroFlourish } from "./images/hero-flourish.png?w=180;360&format=avif;webp&as=picture";
 export { default as portrait } from "./images/abhinandh-portrait.png?w=670;1340&format=avif;webp&as=picture";
-export { default as logoCoxFly } from "./images/logo-cox-fly.png?w=338&h=98&fit=fill&format=avif;webp&as=picture";
+export { default as logoCoxFly } from "./images/logo-cox-fly.png?w=259&h=75&fit=fill&format=avif;webp&as=picture";
 export { default as logoWapo } from "./images/logo-wapo.png?w=120;240&format=avif;webp&as=picture";
 export { default as logoForexiveMark } from "./images/logo-forexive-mark.png?w=204&h=164&fit=fill&format=avif;webp&as=picture";
 export { default as logoPratigya } from "./images/logo-pratigya.png?w=71;142&format=avif;webp&as=picture";
