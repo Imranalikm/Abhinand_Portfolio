@@ -3,11 +3,11 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import { Portfolio } from "@/components/Portfolio";
 
 const DESIGN_WIDTH = 1440;
-const DESIGN_HEIGHT = 6740;
+const DESIGN_HEIGHT = 6990;
 
 /**
- * The page is authored at a fixed 1440x6740 canvas (the lowest content — the
- * footer row — bottoms out around y=6678; 6740 leaves a small breathing margin).
+ * The page is authored at a fixed 1440x6990 canvas (the lowest content — the
+ * footer row — bottoms out around y=6928; 6990 leaves a small breathing margin).
  * This wrapper measures its own width, computes a uniform scale factor, and
  * renders the fixed-size design tree inside an absolutely positioned inner
  * layer with a CSS transform. The inner layer MUST stay `position: absolute`

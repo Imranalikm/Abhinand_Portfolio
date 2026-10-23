@@ -26,7 +26,7 @@ export function Gallery({ images }: GalleryProps) {
     <div className="relative min-h-[420px] overflow-hidden bg-[#222]">
       <div
         ref={rail}
-        className="flex cursor-grab select-none items-end gap-[26px] overflow-x-auto overflow-y-visible px-16 pt-20 active:cursor-grabbing [scrollbar-width:none]"
+        className="flex cursor-grab select-none items-end justify-center-safe gap-[26px] overflow-x-auto overflow-y-visible px-16 pt-20 active:cursor-grabbing [scrollbar-width:none]"
         onMouseDown={onDown}
         onMouseUp={onUp}
         onMouseLeave={onUp}

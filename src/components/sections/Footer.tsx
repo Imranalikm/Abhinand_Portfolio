@@ -67,7 +67,7 @@ export function FooterContent() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={inViewOnce}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="absolute content-stretch flex gap-[199px] items-end justify-end left-[391px] top-[6410px]"
+      className="absolute content-stretch flex gap-[199px] items-end justify-end left-[391px] top-[6660px]"
     >
       <FooterMain />
       <motion.p
@@ -86,7 +86,7 @@ export function FooterContent() {
 export function FooterDecorativeMark() {
   return (
     <motion.div
-      className="absolute left-[1290px] top-[6390px] w-[94px] h-[192px]"
+      className="absolute left-[1290px] top-[6640px] w-[94px] h-[192px]"
       data-name="Group"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}

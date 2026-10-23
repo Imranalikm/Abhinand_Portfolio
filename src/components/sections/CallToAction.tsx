@@ -3,7 +3,7 @@ import { inViewOnce } from "@/lib/motion";
 
 export function WorkTogetherMarquee() {
   return (
-    <div className="absolute content-stretch flex font-['Playfair:Regular',sans-serif] font-normal gap-[24px] items-center leading-[55px] left-[17px] overflow-clip text-[#d5cdc4] text-[70px] top-[5935px] uppercase w-[1423px] whitespace-nowrap">
+    <div className="absolute content-stretch flex font-['Playfair:Regular',sans-serif] font-normal gap-[24px] items-center leading-[55px] left-[17px] overflow-clip text-[#d5cdc4] text-[70px] top-[6185px] uppercase w-[1423px] whitespace-nowrap">
       <motion.div
         className="[word-break:break-word] flex gap-[24px] items-center shrink-0"
         animate={{ x: ["0%", "-50%"] }}
@@ -36,7 +36,7 @@ export function CallToAction() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={inViewOnce}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="[word-break:break-word] absolute font-['Playfair:Regular',sans-serif] font-normal leading-[55px] left-[50px] text-[#d5cdc4] text-[60px] top-[6145px] w-[567px]"
+        className="[word-break:break-word] absolute font-['Playfair:Regular',sans-serif] font-normal leading-[55px] left-[50px] text-[#d5cdc4] text-[60px] top-[6395px] w-[567px]"
         style={{ fontVariationSettings: '"opsz" 12, "wdth" 100' }}
       >
         Crafting experiences that connect people and products.

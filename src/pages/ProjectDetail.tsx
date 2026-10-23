@@ -84,8 +84,14 @@ export function ProjectDetail() {
       {/* Role + tags */}
       <section className="flex max-w-[1440px] flex-col gap-[50px] py-20 pl-[50px] pr-[50px] md:pl-[205px]">
         <Row label="My role" wide>
-          <p className="mb-3">{project.role.intro}</p>
-          <p className="mb-2 font-medium">Responsibilities</p>
+          {project.role.responsibilitiesTitle === null ? (
+            <p className="mb-2">{project.role.intro}</p>
+          ) : (
+            <>
+              <p className="mb-3">{project.role.intro}</p>
+              <p className="mb-2 font-medium">{project.role.responsibilitiesTitle ?? "Responsibilities"}</p>
+            </>
+          )}
           <ul className="flex list-disc flex-col gap-1 pl-6">
             {project.role.responsibilities.map((item, i) => (
               <li key={i}>{item}</li>
@@ -94,7 +100,7 @@ export function ProjectDetail() {
         </Row>
 
         <Row label="Tags" wide>
-          <p>{project.tags.join("  /  ")}</p>
+          <p>{project.tags.join(project.tagSeparator ?? "  /  ")}</p>
         </Row>
       </section>
 
