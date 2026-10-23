@@ -19,20 +19,20 @@ export function DetailHeader({ nextSlug }: DetailHeaderProps) {
 
   return (
     <header
-      className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-[50px] py-7 transition-[background,backdrop-filter] duration-300"
+      className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-4 py-3 transition-[background,backdrop-filter] duration-300 md:px-[50px] md:py-7"
       style={{
         background: scrolled ? "rgba(255,255,255,0.94)" : "transparent",
         backdropFilter: scrolled ? "blur(10px)" : "none",
       }}
     >
-      <Link to="/" className="text-[16px] text-black no-underline">
+      <Link to="/" className="flex items-center text-[16px] text-black no-underline max-md:min-h-11">
         ⟵ Back
       </Link>
-      <Link to="/">
+      <Link to="/" aria-label="Home" className="flex max-md:size-11 items-center justify-center">
         <LogoMark />
       </Link>
       {nextSlug ? (
-        <Link to={`/project/${nextSlug}`} className="text-[16px] text-black no-underline">
+        <Link to={`/project/${nextSlug}`} className="flex items-center text-[16px] text-black no-underline max-md:min-h-11">
           Next ⟶
         </Link>
       ) : (

@@ -1,4 +1,32 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Prociono&family=Jacques+Francois&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Italiana&family=DM+Sans:ital,opsz,wght@0,9..40,100..900;1,9..40,100..900&display=swap");
+/*
+ * Core families are self-hosted (latin subset, which covers all site copy) from public/fonts so the
+ * heading face can be preloaded from index.html. Every Playfair usage pins "opsz" 12, so only that
+ * single static instance is shipped. One-off client-logo faces load from Google Fonts in index.html,
+ * subset with `text=` to the glyphs those wordmarks use.
+ */
+@font-face {
+  font-family: "Playfair";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/playfair-opsz12-400-latin-v10.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("/fonts/dm-sans-var-latin-v17.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url("/fonts/inter-var-latin-v20.woff2") format("woff2");
+}
 
 /* Map Figma font names to loaded Google Fonts via CSS attribute selectors */
 [class*="Playfair:"],

@@ -1,9 +1,9 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import svgPaths from "@/assets/icon-paths";
 
 export function BrandLogo() {
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, scale: 0.6, rotate: -25 }}
       animate={{ opacity: 1, scale: 1, rotate: 0 }}
       whileHover={{ rotate: 14, scale: 1.1 }}
@@ -30,6 +30,6 @@ export function BrandLogo() {
           </clipPath>
         </defs>
       </svg>
-    </motion.div>
+    </m.div>
   );
 }

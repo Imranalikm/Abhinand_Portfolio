@@ -6,11 +6,13 @@ import { Gallery } from "@/components/project-detail/Gallery";
 import { Row } from "@/components/project-detail/Row";
 import { Ticker } from "@/components/project-detail/Ticker";
 import { DetailFooter } from "@/components/project-detail/DetailFooter";
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, useDocumentMeta } from "@/lib/useDocumentMeta";
 
 /** Case-study page for a single portfolio project, rendered entirely from `projects` data. */
 export function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
   const project = getProjectBySlug(slug);
+  useDocumentMeta(project ? `${project.title} case study — Abhinandh KP` : DEFAULT_TITLE, project?.overview[0] ?? DEFAULT_DESCRIPTION);
 
   if (!project) {
     return (
@@ -30,22 +32,19 @@ export function ProjectDetail() {
       <DetailHeader nextSlug={next?.slug} />
 
       {/* Hero */}
-      <section className="px-[50px] pt-[119px]">
+      <section className="px-4 pt-24 md:px-[50px] md:pt-[119px]">
         <p className="text-[21px] leading-none text-[#565e6a]">{project.date}</p>
 
-        <h1
-          className="my-14 font-['Playfair',Georgia,serif] text-[clamp(60px,8.5vw,120px)] font-normal leading-none text-[#222]"
-          style={{ fontVariationSettings: '"opsz" 12, "wdth" 100' }}
-        >
+        <h1 className="my-8 font-['Playfair',Georgia,serif] text-[clamp(44px,8.5vw,120px)] font-normal leading-none text-[#222] md:my-14" style={{ fontVariationSettings: '"opsz" 12, "wdth" 100' }}>
           {project.title}
         </h1>
 
-        <div className="mb-9 flex items-start justify-between border-t border-[#e5e5e5] pt-6">
+        <div className="mb-9 flex flex-col gap-6 border-t border-[#e5e5e5] pt-6 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <p className="mb-1.5 text-[16px] font-light text-black">Proud to work with</p>
             <p className="text-[18px] text-black">{project.client}</p>
           </div>
-          <div className="text-right">
+          <div className="sm:text-right">
             <p className="mb-1.5 text-[16px] font-light text-black">Service</p>
             {project.services.map((s) => (
               <p key={s} className="text-[18px] text-black">
@@ -61,7 +60,7 @@ export function ProjectDetail() {
       </section>
 
       {/* Overview + problem statement */}
-      <section className="flex max-w-[1200px] flex-col gap-[50px] px-[50px] py-20">
+      <section className="flex max-w-[1200px] flex-col gap-10 px-4 py-14 md:gap-[50px] md:px-[50px] md:py-20">
         <Row label="Overview">
           {project.overview.map((p, i) => (
             <p key={i} className={i < project.overview.length - 1 ? "mb-3" : undefined}>
@@ -82,10 +81,16 @@ export function ProjectDetail() {
       <Gallery images={project.gallery} />
 
       {/* Role + tags */}
-      <section className="flex max-w-[1440px] flex-col gap-[50px] py-20 pl-[50px] pr-[50px] md:pl-[205px]">
+      <section className="flex max-w-[1440px] flex-col gap-10 px-4 py-14 md:gap-[50px] md:py-20 md:pl-[205px] md:pr-[50px]">
         <Row label="My role" wide>
-          <p className="mb-3">{project.role.intro}</p>
-          <p className="mb-2 font-medium">Responsibilities</p>
+          {project.role.responsibilitiesTitle === null ? (
+            <p className="mb-2">{project.role.intro}</p>
+          ) : (
+            <>
+              <p className="mb-3">{project.role.intro}</p>
+              <p className="mb-2 font-medium">{project.role.responsibilitiesTitle ?? "Responsibilities"}</p>
+            </>
+          )}
           <ul className="flex list-disc flex-col gap-1 pl-6">
             {project.role.responsibilities.map((item, i) => (
               <li key={i}>{item}</li>
@@ -94,17 +99,14 @@ export function ProjectDetail() {
         </Row>
 
         <Row label="Tags" wide>
-          <p>{project.tags.join("  /  ")}</p>
+          <p>{project.tags.join(project.tagSeparator ?? "  /  ")}</p>
         </Row>
       </section>
 
       <Ticker text="LET'S WORK TOGETHER." />
 
-      <section className="px-[50px] pt-20">
-        <p
-          className="max-w-[567px] font-['Playfair',Georgia,serif] text-[clamp(36px,4.5vw,60px)] font-normal leading-[55px] text-[#222]"
-          style={{ fontVariationSettings: '"opsz" 12, "wdth" 100' }}
-        >
+      <section className="px-4 pt-14 md:px-[50px] md:pt-20">
+        <p className="max-w-[567px] font-['Playfair',Georgia,serif] text-[32px] font-normal leading-[1.15] text-[#222] md:text-[clamp(36px,4.5vw,60px)] md:leading-[55px]" style={{ fontVariationSettings: '"opsz" 12, "wdth" 100' }}>
           {project.closingQuote}
         </p>
       </section>

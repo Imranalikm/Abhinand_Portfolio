@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { fadeLeft, fadeUp, inViewOnce, staggerContainer } from "@/lib/motion";
 
 /* ------------------------------ Career timeline ------------------------------ */
@@ -68,23 +68,23 @@ export function TimelineEntryUiUxDesigner() {
 
 export function CareerTimelineColumnLeft() {
   return (
-    <motion.div
+    <m.div
       initial="hidden"
       whileInView="show"
       viewport={inViewOnce}
       variants={staggerContainer(0.15)}
       className="[word-break:break-word] absolute content-stretch flex flex-col gap-[50px] items-start left-[60px] not-italic text-[#d5cdc4] top-[3291px] w-[626px]"
     >
-      <motion.div variants={fadeUp} className="w-full">
+      <m.div variants={fadeUp} className="w-full">
         <TimelineEntryWisbatoIntern />
-      </motion.div>
-      <motion.div variants={fadeUp} className="w-full">
+      </m.div>
+      <m.div variants={fadeUp} className="w-full">
         <TimelineEntryJuniorDesigner />
-      </motion.div>
-      <motion.div variants={fadeUp} className="w-full">
+      </m.div>
+      <m.div variants={fadeUp} className="w-full">
         <TimelineEntryUiUxDesigner />
-      </motion.div>
-    </motion.div>
+      </m.div>
+    </m.div>
   );
 }
 
@@ -136,20 +136,20 @@ export function TimelineEntryProductDesigner() {
 
 export function CareerTimelineColumnRight() {
   return (
-    <motion.div
+    <m.div
       initial="hidden"
       whileInView="show"
       viewport={inViewOnce}
       variants={staggerContainer(0.15, 0.15)}
       className="[word-break:break-word] absolute content-stretch flex flex-col gap-[50px] items-start leading-[0] left-[805px] not-italic text-[#d5cdc4] top-[3291px] w-[585px]"
     >
-      <motion.div variants={fadeUp} className="w-full">
+      <m.div variants={fadeUp} className="w-full">
         <TimelineEntrySeniorDesigner />
-      </motion.div>
-      <motion.div variants={fadeUp} className="w-full">
+      </m.div>
+      <m.div variants={fadeUp} className="w-full">
         <TimelineEntryProductDesigner />
-      </motion.div>
-    </motion.div>
+      </m.div>
+    </m.div>
   );
 }
 
@@ -575,7 +575,7 @@ const PROJECT_ROWS = [
 
 export function ProjectHistoryList() {
   return (
-    <motion.div
+    <m.div
       initial="hidden"
       whileInView="show"
       viewport={inViewOnce}
@@ -583,11 +583,11 @@ export function ProjectHistoryList() {
       className="absolute content-stretch flex flex-col gap-[30px] items-start left-[76px] top-[4110px] w-[1239px]"
     >
       {PROJECT_ROWS.map((Row, index) => (
-        <motion.div key={index} variants={fadeLeft} className="w-full">
+        <m.div key={index} variants={fadeLeft} className="w-full">
           <Row />
-        </motion.div>
+        </m.div>
       ))}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -595,7 +595,7 @@ export function ProjectHistoryList() {
 export function Experience() {
   return (
     <>
-      <motion.p
+      <m.p
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={inViewOnce}
@@ -603,8 +603,8 @@ export function Experience() {
         className="[word-break:break-word] absolute font-['Montreal_Serial:Regular',sans-serif] leading-[normal] left-[60px] not-italic text-[#d5cdc4] text-[18px] top-[2989px] whitespace-nowrap"
       >
         Area of expertise
-      </motion.p>
-      <motion.p
+      </m.p>
+      <m.p
         initial={{ opacity: 0, y: 36 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={inViewOnce}
@@ -613,8 +613,8 @@ export function Experience() {
         style={{ fontVariationSettings: '"opsz" 12, "wdth" 100' }}
       >
         Experience That Speaks Through Design
-      </motion.p>
-      <motion.p
+      </m.p>
+      <m.p
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={inViewOnce}
@@ -622,10 +622,10 @@ export function Experience() {
         className="[word-break:break-word] absolute font-['Montreal_Serial:Regular',sans-serif] leading-[normal] left-[60px] not-italic text-[#d5cdc4] text-[16px] top-[3172px] w-[626px]"
       >
         From crafting intuitive interfaces to shaping seamless user journeys, every experience has strengthened my passion for purposeful design.
-      </motion.p>
+      </m.p>
       <CareerTimelineColumnLeft />
       <CareerTimelineColumnRight />
-      <motion.p
+      <m.p
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={inViewOnce}
@@ -633,8 +633,8 @@ export function Experience() {
         className="[word-break:break-word] absolute font-['Montreal_Serial:Regular',sans-serif] leading-[normal] left-[76px] not-italic text-[#d5cdc4] text-[18px] top-[3867px] whitespace-nowrap"
       >
         Area of expertise
-      </motion.p>
-      <motion.div
+      </m.p>
+      <m.div
         initial={{ opacity: 0, y: 36 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={inViewOnce}
@@ -644,7 +644,7 @@ export function Experience() {
       >
         <p className="leading-[55px] mb-0 whitespace-pre">{`Professional `}</p>
         <p className="leading-[55px] whitespace-pre">experience</p>
-      </motion.div>
+      </m.div>
       <ProjectHistoryList />
     </>
   );
