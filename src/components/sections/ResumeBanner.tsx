@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { resumeBannerBg as imgRectangle1 } from "@/assets/images";
 import { inViewOnce } from "@/lib/motion";
 
@@ -6,7 +6,7 @@ import { inViewOnce } from "@/lib/motion";
 export function ResumeBanner() {
   return (
     <>
-      <motion.div
+      <m.div
         initial={{ opacity: 0, scale: 1.08 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={inViewOnce}
@@ -14,8 +14,8 @@ export function ResumeBanner() {
         className="absolute h-[209px] left-0 top-[4617px] w-[1440px] overflow-hidden"
       >
         <img alt="" className="absolute inset-0 max-w-none object-cover pointer-events-none size-full" src={imgRectangle1} />
-      </motion.div>
-      <motion.a
+      </m.div>
+      <m.a
         href="/abhinandh-resume.pdf"
         download="Abhinandh-Resume.pdf"
         initial={{ opacity: 0, y: 16 }}
@@ -26,7 +26,7 @@ export function ResumeBanner() {
         className="[word-break:break-word] absolute font-['Montreal_Serial:Bold',sans-serif] leading-[normal] left-[calc(50%-87px)] not-italic text-[#d5cdc4] text-[18px] top-[4817px] whitespace-nowrap cursor-pointer"
       >
         Download my resume
-      </motion.a>
+      </m.a>
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import svgPaths from "@/assets/icon-paths";
 import { fadeUp, inViewOnce, staggerContainer } from "@/lib/motion";
 
@@ -61,7 +61,7 @@ export function ExpertiseCardUserExperienceIcon() {
 
 export function ExpertiseCardUserExperience() {
   return (
-    <motion.div
+    <m.div
       variants={fadeUp}
       whileHover={{ y: -6 }}
       transition={{ duration: 0.3 }}
@@ -69,7 +69,7 @@ export function ExpertiseCardUserExperience() {
     >
       <ExpertiseCardUserExperienceText />
       <ExpertiseCardUserExperienceIcon />
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -119,7 +119,7 @@ export function ExpertiseCardUserInterfaceIcon() {
 
 export function ExpertiseCardUserInterface() {
   return (
-    <motion.div
+    <m.div
       variants={fadeUp}
       whileHover={{ y: -6 }}
       transition={{ duration: 0.3 }}
@@ -127,7 +127,7 @@ export function ExpertiseCardUserInterface() {
     >
       <ExpertiseCardUserInterfaceText />
       <ExpertiseCardUserInterfaceIcon />
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -185,7 +185,7 @@ export function ExpertiseCardDesignPlanningIcon() {
 
 export function ExpertiseCardDesignPlanning() {
   return (
-    <motion.div
+    <m.div
       variants={fadeUp}
       whileHover={{ y: -6 }}
       transition={{ duration: 0.3 }}
@@ -193,7 +193,7 @@ export function ExpertiseCardDesignPlanning() {
     >
       <ExpertiseCardDesignPlanningText />
       <ExpertiseCardDesignPlanningIcon />
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -253,7 +253,7 @@ export function ExpertiseCardBrandingIcon() {
 
 export function ExpertiseCardBranding() {
   return (
-    <motion.div
+    <m.div
       variants={fadeUp}
       whileHover={{ y: -6 }}
       transition={{ duration: 0.3 }}
@@ -261,7 +261,7 @@ export function ExpertiseCardBranding() {
     >
       <ExpertiseCardBrandingText />
       <ExpertiseCardBrandingIcon />
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -277,7 +277,7 @@ export function ExpertiseGridRowBottom() {
 /** 2x2 grid of expertise cards (icon + title + bullet list per card). */
 export function ExpertiseGrid() {
   return (
-    <motion.div
+    <m.div
       initial="hidden"
       whileInView="show"
       viewport={inViewOnce}
@@ -286,7 +286,7 @@ export function ExpertiseGrid() {
     >
       <ExpertiseGridRowTop />
       <ExpertiseGridRowBottom />
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -294,7 +294,7 @@ export function ExpertiseGrid() {
 export function Skills() {
   return (
     <>
-      <motion.p
+      <m.p
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={inViewOnce}
@@ -302,8 +302,8 @@ export function Skills() {
         className="[word-break:break-word] absolute font-['Montreal_Serial:Regular',sans-serif] leading-[normal] left-[50px] not-italic text-[#d5cdc4] text-[18px] top-[2238px] whitespace-nowrap"
       >
         Area of expertise
-      </motion.p>
-      <motion.p
+      </m.p>
+      <m.p
         initial={{ opacity: 0, y: 36 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={inViewOnce}
@@ -312,7 +312,7 @@ export function Skills() {
         style={{ fontVariationSettings: '"opsz" 12, "wdth" 100' }}
       >
         Skills That Shape Meaningful User Journeys.
-      </motion.p>
+      </m.p>
       <ExpertiseGrid />
     </>
   );

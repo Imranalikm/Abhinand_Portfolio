@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { m, useScroll, useSpring } from "framer-motion";
 import { Portfolio } from "@/components/Portfolio";
 
 const DESIGN_WIDTH = 1440;
@@ -33,7 +33,7 @@ export function Home() {
 
   return (
     <>
-      <motion.div
+      <m.div
         className="fixed top-0 left-0 right-0 h-[3px] bg-[#d5cdc4] origin-left z-50"
         style={{ scaleX: progress }}
       />
