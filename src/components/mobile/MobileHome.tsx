@@ -1,10 +1,11 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { m } from "framer-motion";
-import { heroFlourish, portrait, resumeBannerBg } from "@/assets/images";
+import { heroFlourish, portrait } from "@/assets/images";
 import hero01Svg from "@/assets/svg/hero-01.svg";
 import footer01Svg from "@/assets/svg/footer-01.svg";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
+import { ArrowMark } from "@/components/icons/ArrowUpRightIcon";
 import { LogoMark } from "@/components/icons/LogoMark";
 import { SocialIconOutline, SocialIconSolid } from "@/components/icons/SocialIcons";
 import { ClientLogosRowPrimary, ClientLogosRowSecondary } from "@/components/sections/ClientLogos";
@@ -58,35 +59,52 @@ function Header() {
 }
 
 function Hero() {
+  const [line1, line2, line3, line4] = HERO.headline;
+  const lineAnim = (i: number) => ({
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, delay: 0.1 + i * 0.12, ease: easeOut },
+  });
   return (
-    <section className={`${GUTTER} pt-10 pb-16`}>
-      <h1 className={`${HEADING} text-[clamp(44px,11vw,104px)] leading-[1.05]`}>
-        {HERO.headline.map((line, i) => (
-          <m.span key={line} initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 + i * 0.12, ease: easeOut }} className={`block ${i === 3 ? "pl-[35%]" : ""}`}>
-            {line}
+    // Fills the first screen (minus the header) like the desktop hero: headline on top, blurb + biography row anchored to the bottom.
+    <section className={`${GUTTER} flex min-h-[calc(100svh-76px)] flex-col pt-6 pb-10`}>
+      <div className="flex flex-1 flex-col justify-center">
+        <h1 className={`${HEADING} text-[clamp(42px,12.2vw,100px)] leading-[1.04]`}>
+          <m.span {...lineAnim(0)} className="block">
+            {line1}
           </m.span>
-        ))}
-      </h1>
-
-      <div className="mt-10 flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
-        <div className="flex items-center gap-4 md:max-w-[420px]">
-          <img src={hero01Svg} alt="" width={50} height={50} className="size-[50px] shrink-0 animate-[rotate-full_14s_linear_infinite] motion-reduce:animate-none" />
-          <p className="text-[16px] leading-[1.4] text-[#d5cdc4]">{HERO.blurb}</p>
-        </div>
-        <div className="self-end md:self-auto">
-          <ResponsiveImage picture={heroFlourish} alt="" sizes="120px" className="block h-auto w-[120px] animate-[rotate-full_120s_linear_infinite] motion-reduce:animate-none" />
-        </div>
+          <m.span {...lineAnim(1)} className="block">
+            {line2}
+          </m.span>
+          <m.span {...lineAnim(2)} className="block">
+            {line3}
+          </m.span>
+          {/* As on desktop, the mandala sits on the "India" line, to its left. */}
+          <m.span {...lineAnim(3)} className="flex items-center gap-[0.45em] pl-[16%]">
+            <span aria-hidden className="block w-[0.95em] shrink-0">
+              <ResponsiveImage picture={heroFlourish} alt="" sizes="100px" className="block h-auto w-full animate-[rotate-full_120s_linear_infinite] motion-reduce:animate-none" />
+            </span>
+            {line4}
+          </m.span>
+        </h1>
       </div>
 
-      <div className="mt-12 flex items-end justify-between gap-6">
-        <p className={`${HEADING} text-[clamp(36px,7vw,50px)] leading-[1]`}>
-          {HERO.biography[0]}
-          <br />
-          {HERO.biography[1]}
-        </p>
-        <div className="flex gap-6">
-          <SocialIconOutline />
-          <SocialIconSolid />
+      <div className="pt-12">
+        <m.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.6, ease: easeOut }} className="flex max-w-[460px] items-center gap-4">
+          <img src={hero01Svg} alt="" width={44} height={44} className="size-[44px] shrink-0 animate-[rotate-full_14s_linear_infinite] motion-reduce:animate-none" />
+          <p className="text-[16px] leading-[1.45] text-[#d5cdc4]">{HERO.blurb}</p>
+        </m.div>
+
+        <div className="mt-10 flex items-end justify-between gap-6 border-t border-[rgba(213,205,196,0.2)] pt-6">
+          <p className={`${HEADING} text-[clamp(32px,7vw,50px)] leading-[1]`}>
+            {HERO.biography[0]}
+            <br />
+            {HERO.biography[1]}
+          </p>
+          <div className="flex gap-4">
+            <SocialIconOutline />
+            <SocialIconSolid />
+          </div>
         </div>
       </div>
     </section>
@@ -204,10 +222,13 @@ function ProjectHistory() {
 
 function Resume() {
   return (
-    <section className={`${DEFER} relative isolate flex min-h-[160px] items-center justify-center overflow-hidden`}>
-      <ResponsiveImage picture={resumeBannerBg} alt="" sizes="100vw" className="absolute inset-0 -z-10 size-full object-cover" />
-      <a href="/abhinandh-resume.pdf" download="Abhinandh-Resume.pdf" className="min-h-11 rounded-full border border-[#d5cdc4] bg-black/60 px-6 py-3 text-[18px] text-[#d5cdc4] backdrop-blur-sm">
-        Download my resume
+    <section className={`${DEFER} ${GUTTER} py-10`}>
+      <a href="/abhinandh-resume.pdf" download="Abhinandh-Resume.pdf" className="flex items-center justify-between gap-6 rounded-2xl border border-[rgba(213,205,196,0.3)] px-6 py-7 transition-colors active:bg-[rgba(213,205,196,0.06)]">
+        <span>
+          <span className="block text-[15px] text-[rgba(213,205,196,0.7)]">Resume · PDF</span>
+          <span className={`${HEADING} mt-1 block text-[clamp(26px,6vw,40px)] leading-[1.1]`}>Download my resume</span>
+        </span>
+        <ArrowMark className="size-9 shrink-0 rotate-90" />
       </a>
     </section>
   );
@@ -226,9 +247,7 @@ function Portfolio() {
                 <span className={`${HEADING} text-[clamp(28px,7vw,50px)] leading-[1.1] ${row.slug ? "" : "opacity-70"}`}>{row.title}</span>
                 <span className={`text-[16px] capitalize ${row.slug ? "text-[#d5cdc4]" : "text-[rgba(213,205,196,0.7)]"}`}>{row.tags}</span>
               </span>
-              <span aria-hidden className={`text-[28px] leading-none ${row.slug ? "text-[#d5cdc4]" : "text-[rgba(213,205,196,0.4)]"}`}>
-                ↗
-              </span>
+              <ArrowMark className={`size-8 shrink-0 ${row.slug ? "" : "opacity-40"}`} />
             </>
           );
           const rowClass = "flex items-center gap-4 border-b border-[rgba(213,205,196,0.3)] py-6";

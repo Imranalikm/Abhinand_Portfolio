@@ -11,24 +11,23 @@ interface ArrowUpRightIconProps {
 /** Arrow icon used on each portfolio project row (6x reuse in the source). */
 export function ArrowUpRightIcon({ top, dimmed, active }: ArrowUpRightIconProps) {
   return (
-    <m.div
-      className="absolute left-[1352px] size-[38px] cursor-pointer"
-      style={{ top }}
-      data-name="arrow-up-right"
-      animate={active ? { x: 6, y: -6, scale: 1.1 } : { x: 0, y: 0, scale: 1 }}
-      whileHover={{ x: 6, y: -6, scale: 1.1 }}
-      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-    >
+    <m.div className="absolute left-[1352px] size-[38px] cursor-pointer" style={{ top }} data-name="arrow-up-right" animate={active ? { x: 6, y: -6, scale: 1.1 } : { x: 0, y: 0, scale: 1 }} whileHover={{ x: 6, y: -6, scale: 1.1 }} transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}>
       <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 38 38">
-        <m.g
-          id="arrow-up-right"
-          animate={{ opacity: dimmed ? (active ? 1 : 0.5) : 1 }}
-          transition={{ duration: 0.3 }}
-        >
+        <m.g id="arrow-up-right" animate={{ opacity: dimmed ? (active ? 1 : 0.5) : 1 }} transition={{ duration: 0.3 }}>
           <path d={svgPaths.p2fe87880} id="Vector" stroke="var(--stroke-0, #D5CDC4)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
           <path d={svgPaths.pb49d80} id="Vector_2" stroke="var(--stroke-0, #D5CDC4)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
         </m.g>
       </svg>
     </m.div>
+  );
+}
+
+/** Same arrow glyph, unpositioned, for flow layouts (mobile portfolio rows, resume card). */
+export function ArrowMark({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 38 38" fill="none" aria-hidden="true">
+      <path d={svgPaths.p2fe87880} stroke="#D5CDC4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+      <path d={svgPaths.pb49d80} stroke="#D5CDC4" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+    </svg>
   );
 }
