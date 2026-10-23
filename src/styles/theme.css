@@ -187,7 +187,37 @@
   }
 }
 
-/* Used by the project detail pages' Ticker marquee. */
+/*
+ * Infinite decorative loops run as CSS keyframes (compositor-only transforms) rather than JS-driven
+ * framer-motion loops, so they cost no main-thread time. Pair each with motion-reduce:animate-none.
+ */
+@keyframes rotate-full {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Footer flower: 0 -> 6deg -> 0 -> -6deg -> 0, eased per segment. */
+@keyframes sway {
+  25% {
+    transform: rotate(6deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-6deg);
+  }
+}
+
+/* "Scroll" pill label bob. */
+@keyframes bob {
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+/* Marquees (logo rows, "Let's work together", detail-page Ticker): content is duplicated, so -50% loops seamlessly. */
 @keyframes ticker {
   from {
     transform: translateX(0);

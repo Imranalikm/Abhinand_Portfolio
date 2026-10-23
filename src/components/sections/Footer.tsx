@@ -75,7 +75,7 @@ export function FooterContent() {
 export function FooterDecorativeMark() {
   return (
     <m.div className="absolute left-[1290px] top-[6640px] w-[94px] h-[192px]" data-name="Group" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={inViewOnce} transition={{ duration: 1 }}>
-      <m.img className="absolute block inset-0 size-full" animate={{ rotate: [0, 6, 0, -6, 0] }} transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }} style={{ transformOrigin: "50% 50%" }} src={footer01Svg} alt="" decoding="async" draggable={false} />
+      <img className="absolute block inset-0 size-full animate-[sway_16s_ease-in-out_infinite] motion-reduce:animate-none" style={{ transformOrigin: "50% 50%" }} src={footer01Svg} alt="" decoding="async" draggable={false} />
     </m.div>
   );
 }

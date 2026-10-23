@@ -6,11 +6,13 @@ import { Gallery } from "@/components/project-detail/Gallery";
 import { Row } from "@/components/project-detail/Row";
 import { Ticker } from "@/components/project-detail/Ticker";
 import { DetailFooter } from "@/components/project-detail/DetailFooter";
+import { DEFAULT_DESCRIPTION, DEFAULT_TITLE, useDocumentMeta } from "@/lib/useDocumentMeta";
 
 /** Case-study page for a single portfolio project, rendered entirely from `projects` data. */
 export function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
   const project = getProjectBySlug(slug);
+  useDocumentMeta(project ? `${project.title} case study — Abhinandh KP` : DEFAULT_TITLE, project?.overview[0] ?? DEFAULT_DESCRIPTION);
 
   if (!project) {
     return (

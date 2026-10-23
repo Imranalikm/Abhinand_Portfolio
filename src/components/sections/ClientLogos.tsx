@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { m } from "framer-motion";
 import { logoCoxFly, logoWapo, logoForexiveMark, logoPratigya, logoReworkHealth } from "@/assets/images";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
@@ -27,12 +27,12 @@ function LogoItem({ children }: { children: ReactNode }) {
 function MarqueeRow({ children, reverse = false, duration = 28 }: { children: ReactNode; reverse?: boolean; duration?: number }) {
   return (
     <div className="overflow-hidden relative w-full">
-      <m.div className="flex items-center w-max" animate={{ x: reverse ? ["-50%", "0%"] : ["0%", "-50%"] }} transition={{ duration, repeat: Infinity, ease: "linear" }}>
+      <div className={`flex items-center w-max animate-[ticker_var(--marquee-duration)_linear_infinite] motion-reduce:animate-none ${reverse ? "[animation-direction:reverse]" : ""}`} style={{ "--marquee-duration": `${duration}s` } as CSSProperties}>
         <div className="flex items-center gap-[65px] pr-[65px] shrink-0">{children}</div>
         <div className="flex items-center gap-[65px] pr-[65px] shrink-0" aria-hidden="true">
           {children}
         </div>
-      </m.div>
+      </div>
     </div>
   );
 }

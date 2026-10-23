@@ -1,7 +1,8 @@
 import { m } from "framer-motion";
 import { SocialIconOutline, SocialIconSolid } from "@/components/icons/SocialIcons";
 import hero01Svg from "@/assets/svg/hero-01.svg";
-import hero02Svg from "@/assets/svg/hero-02.svg";
+import { heroFlourish } from "@/assets/images";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 /** Two small outline/solid social icons centered beneath the hero headline. */
 export function HeroSocialIcons() {
@@ -31,9 +32,7 @@ export function CopyrightNote() {
 export function ScrollIndicator() {
   return (
     <m.button type="button" aria-label="Scroll down" onClick={() => window.scrollTo({ top: window.scrollY + window.innerHeight * 0.85, behavior: "smooth" })} initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.9, ease: [0.16, 1, 0.3, 1] }} className="absolute bg-[rgba(217,217,217,0.2)] content-stretch flex flex-col items-center justify-center left-[247px] px-[9px] py-[23px] rounded-[31px] size-[75px] top-[465px] cursor-pointer">
-      <m.p animate={{ y: [0, 6, 0] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }} className="[word-break:break-word] font-['Playfair_Display_SC:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[12px] text-white whitespace-nowrap">
-        Scroll
-      </m.p>
+      <p className="animate-[bob_2s_ease-in-out_infinite] motion-reduce:animate-none [word-break:break-word] font-['Playfair_Display_SC:Regular',sans-serif] leading-[normal] not-italic relative shrink-0 text-[12px] text-white whitespace-nowrap">Scroll</p>
     </m.button>
   );
 }
@@ -41,11 +40,11 @@ export function ScrollIndicator() {
 /** Rotating gradient badge icon used next to the hero blurb. */
 export function RotatingBadgeIcon() {
   return (
-    <m.div className="overflow-clip relative shrink-0 size-[50px]" data-name="398661759_75fab5f5-473f-423a-ad55-0abff206a258 1" animate={{ rotate: 360 }} transition={{ duration: 14, repeat: Infinity, ease: "linear" }}>
+    <div className="overflow-clip relative shrink-0 size-[50px] animate-[rotate-full_14s_linear_infinite] motion-reduce:animate-none" data-name="398661759_75fab5f5-473f-423a-ad55-0abff206a258 1">
       <div className="absolute inset-[1.15%_1.13%_1.11%_1.13%]" data-name="Group">
         <img className="absolute block inset-0 size-full" src={hero01Svg} alt="" decoding="async" draggable={false} />
       </div>
-    </m.div>
+    </div>
   );
 }
 
@@ -64,7 +63,7 @@ export function DecorativeFlourish() {
   return (
     <div className="absolute contents inset-[8.14%_60.83%_90.27%_31.39%]" data-name="Layer_1">
       <m.div className="absolute inset-[8.14%_60.83%_90.27%_31.39%]" data-name="Group" initial={{ opacity: 0, rotate: -15, scale: 0.85 }} animate={{ opacity: 1, rotate: 0, scale: 1 }} transition={{ duration: 1.4, delay: 0.3, ease: [0.16, 1, 0.3, 1] }} style={{ transformOrigin: "50% 50%" }}>
-        <m.img className="absolute block inset-0 size-full" animate={{ rotate: 360 }} transition={{ duration: 120, repeat: Infinity, ease: "linear" }} style={{ transformOrigin: "50% 50%" }} src={hero02Svg} alt="" decoding="async" draggable={false} />
+        <ResponsiveImage picture={heroFlourish} alt="" sizes="11vw" className="absolute block inset-0 size-full animate-[rotate-full_120s_linear_infinite] motion-reduce:animate-none" style={{ transformOrigin: "50% 50%" }} draggable={false} />
       </m.div>
     </div>
   );

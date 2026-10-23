@@ -1,9 +1,8 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { m } from "framer-motion";
-import { portrait, resumeBannerBg } from "@/assets/images";
+import { heroFlourish, portrait, resumeBannerBg } from "@/assets/images";
 import hero01Svg from "@/assets/svg/hero-01.svg";
-import hero02Svg from "@/assets/svg/hero-02.svg";
 import footer01Svg from "@/assets/svg/footer-01.svg";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { LogoMark } from "@/components/icons/LogoMark";
@@ -19,6 +18,8 @@ const SKILL_ICONS = [ExpertiseCardUserExperienceIcon, ExpertiseCardUserInterface
 
 const HEADING = "font-['Playfair:Regular',serif] font-normal text-[#d5cdc4]";
 const GUTTER = "px-4 sm:px-8 md:px-12";
+/** Below-the-fold sections: the browser skips their layout/paint until they approach the viewport. */
+const DEFER = "[content-visibility:auto] [contain-intrinsic-size:auto_900px]";
 
 function scrollToSection(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -69,10 +70,12 @@ function Hero() {
 
       <div className="mt-10 flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-4 md:max-w-[420px]">
-          <m.img src={hero01Svg} alt="" className="size-[50px] shrink-0" animate={{ rotate: 360 }} transition={{ duration: 14, repeat: Infinity, ease: "linear" }} />
+          <img src={hero01Svg} alt="" width={50} height={50} className="size-[50px] shrink-0 animate-[rotate-full_14s_linear_infinite] motion-reduce:animate-none" />
           <p className="text-[16px] leading-[1.4] text-[#d5cdc4]">{HERO.blurb}</p>
         </div>
-        <m.img src={hero02Svg} alt="" className="size-[120px] self-end md:self-auto" animate={{ rotate: 360 }} transition={{ duration: 120, repeat: Infinity, ease: "linear" }} loading="lazy" decoding="async" />
+        <div className="self-end md:self-auto">
+          <ResponsiveImage picture={heroFlourish} alt="" sizes="120px" className="block h-auto w-[120px] animate-[rotate-full_120s_linear_infinite] motion-reduce:animate-none" />
+        </div>
       </div>
 
       <div className="mt-12 flex items-end justify-between gap-6">
@@ -92,7 +95,7 @@ function Hero() {
 
 function About() {
   return (
-    <section id="bio" className={`${GUTTER} py-16 scroll-mt-4`}>
+    <section id="bio" className={`${DEFER} ${GUTTER} py-16 scroll-mt-4`}>
       <Eyebrow>About</Eyebrow>
       <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
         <Reveal>
@@ -114,7 +117,7 @@ function About() {
 
 function Clients() {
   return (
-    <section aria-label="Clients" className="py-12 flex flex-col gap-8">
+    <section aria-label="Clients" className={`${DEFER} flex flex-col gap-8 py-12`}>
       <ClientLogosRowPrimary />
       <ClientLogosRowSecondary />
     </section>
@@ -123,7 +126,7 @@ function Clients() {
 
 function Skills() {
   return (
-    <section className={`${GUTTER} py-16`}>
+    <section className={`${DEFER} ${GUTTER} py-16`}>
       <Eyebrow>Area of expertise</Eyebrow>
       <Reveal>
         <h2 className={`${HEADING} text-[clamp(36px,8vw,60px)] leading-[1.05] max-w-[640px]`}>{SKILLS.heading}</h2>
@@ -155,7 +158,7 @@ function Skills() {
 
 function Experience() {
   return (
-    <section className={`${GUTTER} py-16`}>
+    <section className={`${DEFER} ${GUTTER} py-16`}>
       <Eyebrow>Area of expertise</Eyebrow>
       <Reveal>
         <h2 className={`${HEADING} text-[clamp(36px,8vw,60px)] leading-[1.05] max-w-[640px]`}>{EXPERIENCE.heading}</h2>
@@ -182,7 +185,7 @@ function Experience() {
 
 function ProjectHistory() {
   return (
-    <section className={`${GUTTER} py-16`}>
+    <section className={`${DEFER} ${GUTTER} py-16`}>
       <Eyebrow>Area of expertise</Eyebrow>
       <Reveal>
         <h2 className={`${HEADING} text-[clamp(36px,8vw,60px)] leading-[1.05]`}>Professional experience</h2>
@@ -201,7 +204,7 @@ function ProjectHistory() {
 
 function Resume() {
   return (
-    <section className="relative isolate flex min-h-[160px] items-center justify-center overflow-hidden">
+    <section className={`${DEFER} relative isolate flex min-h-[160px] items-center justify-center overflow-hidden`}>
       <ResponsiveImage picture={resumeBannerBg} alt="" sizes="100vw" className="absolute inset-0 -z-10 size-full object-cover" />
       <a href="/abhinandh-resume.pdf" download="Abhinandh-Resume.pdf" className="min-h-11 rounded-full border border-[#d5cdc4] bg-black/60 px-6 py-3 text-[18px] text-[#d5cdc4] backdrop-blur-sm">
         Download my resume
@@ -212,16 +215,16 @@ function Resume() {
 
 function Portfolio() {
   return (
-    <section id="work" className={`${GUTTER} py-16 scroll-mt-4`}>
+    <section id="work" className={`${DEFER} ${GUTTER} py-16 scroll-mt-4`}>
       <h2 className={`${HEADING} text-[clamp(40px,9vw,60px)] leading-[1]`}>Portfolio</h2>
       <ul className="mt-10 border-t border-[rgba(213,205,196,0.3)]">
         {PORTFOLIO.map((row) => {
           const body = (
             <>
-              <span className={`${HEADING} text-[clamp(28px,7vw,50px)] leading-[1.1] w-[2.2em] shrink-0 ${row.slug ? "" : "opacity-50"}`}>{row.index}</span>
+              <span className={`${HEADING} text-[clamp(28px,7vw,50px)] leading-[1.1] w-[2.2em] shrink-0 ${row.slug ? "" : "opacity-70"}`}>{row.index}</span>
               <span className="flex min-w-0 flex-1 flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6">
-                <span className={`${HEADING} text-[clamp(28px,7vw,50px)] leading-[1.1] ${row.slug ? "" : "opacity-50"}`}>{row.title}</span>
-                <span className={`text-[16px] capitalize ${row.slug ? "text-[#d5cdc4]" : "text-[rgba(213,205,196,0.5)]"}`}>{row.tags}</span>
+                <span className={`${HEADING} text-[clamp(28px,7vw,50px)] leading-[1.1] ${row.slug ? "" : "opacity-70"}`}>{row.title}</span>
+                <span className={`text-[16px] capitalize ${row.slug ? "text-[#d5cdc4]" : "text-[rgba(213,205,196,0.7)]"}`}>{row.tags}</span>
               </span>
               <span aria-hidden className={`text-[28px] leading-none ${row.slug ? "text-[#d5cdc4]" : "text-[rgba(213,205,196,0.4)]"}`}>
                 ↗
@@ -248,15 +251,15 @@ function Portfolio() {
 
 function Closing() {
   return (
-    <section className="py-16">
+    <section className={`${DEFER} py-16`}>
       <div className="overflow-hidden">
-        <m.div className={`${HEADING} flex w-max gap-6 text-[clamp(40px,10vw,70px)] uppercase leading-[1.2] whitespace-nowrap`} animate={{ x: ["0%", "-50%"] }} transition={{ duration: 18, repeat: Infinity, ease: "linear" }}>
+        <div className={`${HEADING} flex w-max gap-6 text-[clamp(40px,10vw,70px)] uppercase leading-[1.2] whitespace-nowrap animate-[ticker_18s_linear_infinite] motion-reduce:animate-none`}>
           {Array.from({ length: 4 }, (_, i) => (
             <span key={i} aria-hidden={i > 0}>
               Let’s work together.
             </span>
           ))}
-        </m.div>
+        </div>
       </div>
       <p className={`${GUTTER} mt-12 ${HEADING} text-[clamp(32px,7vw,60px)] leading-[1.1] max-w-[640px]`}>{CLOSING}</p>
     </section>
@@ -265,7 +268,7 @@ function Closing() {
 
 function Footer() {
   return (
-    <footer className={`${GUTTER} pt-8 pb-12 text-[#d5cdc4]`}>
+    <footer className={`${DEFER} ${GUTTER} pt-8 pb-12 text-[#d5cdc4]`}>
       <div className="grid gap-10 sm:grid-cols-[auto_1fr_auto] sm:items-end">
         <div>
           <p className="text-[22px] font-medium">Services</p>

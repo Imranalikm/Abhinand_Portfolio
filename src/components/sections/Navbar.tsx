@@ -9,28 +9,13 @@ function scrollToSection(id: string) {
 /** Top-left "Bio / Portfolio" text links. */
 export function NavLinks() {
   return (
-    <m.div
-      initial={{ opacity: 0, y: -16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-      className="[word-break:break-word] absolute content-stretch flex font-['Inter:Regular',sans-serif] font-normal gap-[30px] items-center leading-[normal] left-[50px] not-italic text-[#d5cdc4] text-[16px] top-[50px] whitespace-nowrap"
-    >
-      <m.p
-        onClick={() => scrollToSection("about")}
-        whileHover={{ y: -2, opacity: 0.7 }}
-        transition={{ duration: 0.2 }}
-        className="relative shrink-0 cursor-pointer"
-      >
+    <m.div initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }} className="[word-break:break-word] absolute content-stretch flex font-['Inter:Regular',sans-serif] font-normal gap-[30px] items-center leading-[normal] left-[50px] not-italic text-[#d5cdc4] text-[16px] top-[50px] whitespace-nowrap">
+      <m.button type="button" onClick={() => scrollToSection("about")} whileHover={{ y: -2, opacity: 0.7 }} transition={{ duration: 0.2 }} className="relative shrink-0 cursor-pointer">
         Bio
-      </m.p>
-      <m.p
-        onClick={() => scrollToSection("portfolio")}
-        whileHover={{ y: -2, opacity: 0.7 }}
-        transition={{ duration: 0.2 }}
-        className="relative shrink-0 cursor-pointer"
-      >
+      </m.button>
+      <m.button type="button" onClick={() => scrollToSection("portfolio")} whileHover={{ y: -2, opacity: 0.7 }} transition={{ duration: 0.2 }} className="relative shrink-0 cursor-pointer">
         Portfolio
-      </m.p>
+      </m.button>
     </m.div>
   );
 }
@@ -41,13 +26,7 @@ export function Navbar() {
     <>
       <NavLinks />
       <BrandLogo />
-      <m.p
-        initial={{ opacity: 0, y: -16 }}
-        animate={{ opacity: 1, y: 0 }}
-        whileHover={{ y: -2, opacity: 0.7 }}
-        transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        className="[word-break:break-word] absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[1352px] not-italic text-[#d5cdc4] text-[16px] top-[50px] whitespace-nowrap cursor-pointer"
-      >
+      <m.p initial={{ opacity: 0, y: -16 }} animate={{ opacity: 1, y: 0 }} whileHover={{ y: -2, opacity: 0.7 }} transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }} className="[word-break:break-word] absolute font-['Inter:Regular',sans-serif] font-normal leading-[normal] left-[1352px] not-italic text-[#d5cdc4] text-[16px] top-[50px] whitespace-nowrap cursor-pointer">
         Blog
       </m.p>
     </>
